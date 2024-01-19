@@ -17,5 +17,37 @@ voici notre troisème visualisation:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTJG9Q4OkjPWciwYyKzZsQk-CqOvOfj1XooZbHJMOiuMFdfuLu5YCHzdBDFi2iBbwIY4xcxFpCHxaKo/pubchart?oid=1362692641&amp;format=interactive
 
 https://github.com/eclipse/rdf4j
+import org.eclipse.rdf4j.query.resultio.sparqljson.SPARQLResultsJSONWriter;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.sparql.SPARQLRepository;
+import java.util.Collections;
+
+/**
+ * Wikidata RDF4J SPARQL example
+ */
+public class App
+{
+    public static void main( String[] args )
+    {
+        String sparqlEndpoint = "https://query.wikidata.org/sparql";
+        SPARQLRepository repo = new SPARQLRepository(sparqlEndpoint);
+
+        String userAgent = "Wikidata RDF4J Java Example/0.1 (https://query.wikidata.org/)";
+        repo.setAdditionalHttpHeaders( Collections.singletonMap("User-Agent", userAgent ) );
+
+        String querySelect = "SELECT ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020Label WHERE {\n" +
+                "  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\n" +
+                "  ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 wdt:P921 wd:Q85173778.\n" +
+                "}\n" +
+                "LIMIT 100";
+
+        try{
+            repo.getConnection().prepareTupleQuery(querySelect).evaluate(new SPARQLResultsJSONWriter(System.out));
+        } catch ( Exception exception ) {
+            exception.printStackTrace();
+        }
+
+    }
+}
 
 
