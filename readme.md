@@ -16,13 +16,8 @@ voici notre troisème visualisation:
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTJG9Q4OkjPWciwYyKzZsQk-CqOvOfj1XooZbHJMOiuMFdfuLu5YCHzdBDFi2iBbwIY4xcxFpCHxaKo/pubchart?oid=1362692641&amp;format=interactive
 
-https://github.com/eclipse/rdf4j
-import org.eclipse.rdf4j.query.resultio.sparqljson.SPARQLResultsJSONWriter;
-import org.eclipse.rdf4j.repository.RepositoryException;
-import org.eclipse.rdf4j.repository.sparql.SPARQLRepository;
-import java.util.Collections;
 
-/**
+
  * Wikidata RDF4J SPARQL example
  */
 public class App
