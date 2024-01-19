@@ -16,32 +16,5 @@ voici notre troisème visualisation:
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTJG9Q4OkjPWciwYyKzZsQk-CqOvOfj1XooZbHJMOiuMFdfuLu5YCHzdBDFi2iBbwIY4xcxFpCHxaKo/pubchart?oid=1362692641&amp;format=interactive
 
-# pip install sparqlwrapper
-# https://rdflib.github.io/sparqlwrapper/
-
-import sys
-from SPARQLWrapper import SPARQLWrapper, JSON
-
-endpoint_url = "https://query.wikidata.org/sparql"
-
-query = """SELECT ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020Label WHERE {
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-  ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 wdt:P921 wd:Q85173778.
-}
-LIMIT 100"""
-
-
-def get_results(endpoint_url, query):
-    user_agent = "WDQS-example Python/%s.%s" % (sys.version_info[0], sys.version_info[1])
-    # TODO adjust user agent; see https://w.wiki/CX6
-    sparql = SPARQLWrapper(endpoint_url, agent=user_agent)
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-    return sparql.query().convert()
-
-
-results = get_results(endpoint_url, query)
-
-for result in results["results"]["bindings"]:
-    print(result)
+https://query.wikidata.org/embed.html#SELECT%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020Label%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20wdt%3AP921%20wd%3AQ85173778.%0A%7D%0ALIMIT%20100" 
 
