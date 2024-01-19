@@ -16,33 +16,32 @@ voici notre troisème visualisation:
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTJG9Q4OkjPWciwYyKzZsQk-CqOvOfj1XooZbHJMOiuMFdfuLu5YCHzdBDFi2iBbwIY4xcxFpCHxaKo/pubchart?oid=1362692641&amp;format=interactive
 
+# pip install sparqlwrapper
+# https://rdflib.github.io/sparqlwrapper/
 
+import sys
+from SPARQLWrapper import SPARQLWrapper, JSON
 
- * Wikidata RDF4J SPARQL example
- */
-public class App
-{
-    public static void main( String[] args )
-    {
-        String sparqlEndpoint = "https://query.wikidata.org/sparql";
-        SPARQLRepository repo = new SPARQLRepository(sparqlEndpoint);
+endpoint_url = "https://query.wikidata.org/sparql"
 
-        String userAgent = "Wikidata RDF4J Java Example/0.1 (https://query.wikidata.org/)";
-        repo.setAdditionalHttpHeaders( Collections.singletonMap("User-Agent", userAgent ) );
-
-        String querySelect = "SELECT ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020Label WHERE {\n" +
-                "  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\n" +
-                "  ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 wdt:P921 wd:Q85173778.\n" +
-                "}\n" +
-                "LIMIT 100";
-
-        try{
-            repo.getConnection().prepareTupleQuery(querySelect).evaluate(new SPARQLResultsJSONWriter(System.out));
-        } catch ( Exception exception ) {
-            exception.printStackTrace();
-        }
-
-    }
+query = """SELECT ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020Label WHERE {
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 wdt:P921 wd:Q85173778.
 }
+LIMIT 100"""
 
+
+def get_results(endpoint_url, query):
+    user_agent = "WDQS-example Python/%s.%s" % (sys.version_info[0], sys.version_info[1])
+    # TODO adjust user agent; see https://w.wiki/CX6
+    sparql = SPARQLWrapper(endpoint_url, agent=user_agent)
+    sparql.setQuery(query)
+    sparql.setReturnFormat(JSON)
+    return sparql.query().convert()
+
+
+results = get_results(endpoint_url, query)
+
+for result in results["results"]["bindings"]:
+    print(result)
 
