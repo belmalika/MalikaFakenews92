@@ -18,11 +18,6 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTJG9Q4OkjPWciwYyKzZsQk-CqOvOfj1
 
 https://query.wikidata.org/embed.html#SELECT%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020Label%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20wdt%3AP921%20wd%3AQ85173778.%0A%7D%0ALIMIT%20100" 
 
-https://www.mediawiki.org/wiki/Manual:Pywikibot/User-agent
 
-
-[https://query.wikidata.org/#SELECT%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020Label%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20wdt%3AP921%20wd%3AQ85173778.%0A%7D%0ALIMIT%20100 Query]
-
-http://www.r-bloggers.com/sparql-with-r-in-less-than-5-minutes
 
 
