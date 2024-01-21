@@ -7,10 +7,12 @@ VISUALISATION FAITES PAR Malika BELHADJ ET Massissilia MERAKEB
 voici le graphique de notre première visualisation: 
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTxUwZ2douMDjLkCG2QLTHhBDiltDKH8M4Qi8-rMuidu033mMVPW-8ZCoNH5RjwEPHcnqPZ2-bE05at/pubhtml?gid=283991522&single=true
+On a collecté des données de Wikidata sous forme de sweets dont le contexte général consiste sur la pandémie de la COVID-19 et de l'importance des informations précises en temps de crise sanitaire, l'objectif de la visualisation, qui est de mettre en évidence la présence de fausses informations sur la COVID-19 dans les tweet, cela pourrait inclure le nombre de tweets, la fréquence des termes liés à la désinformation, ou d'autres mesures pertinentes.
 
 voici notre deuxième visualisation: 
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vSMXQSAZcTo3jQ56amp-ca-L9N1GqmTgOULR56jRMepVr3Zd8I6l95f2u2kRkf0_4DudMuJbTZDYZ-0/pubchart?oid=1051810006&amp;format=interactive">
+pour la deuxième 
 
 voici notre troisème visualisation: 
 
