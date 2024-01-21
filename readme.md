@@ -21,6 +21,39 @@ Et pour la troisième on pris le nombre de mortalité (de décès) dans certaine
 
 https://query.wikidata.org/embed.html#SELECT%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020Label%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20wdt%3AP921%20wd%3AQ85173778.%0A%7D%0ALIMIT%20100" 
 
+// https://github.com/eclipse/rdf4j
+import org.eclipse.rdf4j.query.resultio.sparqljson.SPARQLResultsJSONWriter;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.sparql.SPARQLRepository;
+import java.util.Collections;
+
+/**
+ * Wikidata RDF4J SPARQL example
+ */
+public class App
+{
+    public static void main( String[] args )
+    {
+        String sparqlEndpoint = "https://query.wikidata.org/sparql";
+        SPARQLRepository repo = new SPARQLRepository(sparqlEndpoint);
+
+        String userAgent = "Wikidata RDF4J Java Example/0.1 (https://query.wikidata.org/)";
+        repo.setAdditionalHttpHeaders( Collections.singletonMap("User-Agent", userAgent ) );
+
+        String querySelect = "SELECT ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020Label WHERE {\n" +
+                "  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\n" +
+                "  ?désinformation_sur_la_pandémie_de_maladie_à_coronavirus_de_2019_2020 wdt:P921 wd:Q85173778.\n" +
+                "}\n" +
+                "LIMIT 100";
+
+        try{
+            repo.getConnection().prepareTupleQuery(querySelect).evaluate(new SPARQLResultsJSONWriter(System.out));
+        } catch ( Exception exception ) {
+            exception.printStackTrace();
+        }
+
+    }
+}
 
 
 
