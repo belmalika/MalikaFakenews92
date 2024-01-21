@@ -12,7 +12,7 @@ On a collecté des données de Wikidata sous forme de sweets dont le contexte g�
 voici notre deuxième visualisation: 
 
 https://docs.google.com/spreadsheets/d/e/2PACX-1vSMXQSAZcTo3jQ56amp-ca-L9N1GqmTgOULR56jRMepVr3Zd8I6l95f2u2kRkf0_4DudMuJbTZDYZ-0/pubchart?oid=1051810006&amp;format=interactive">
-Pour la deuxième 
+Pour la deuxième sont des données qu'on a colllecté de datagouvernement et ça parle des pays les plus touchés de la covid 19.
 
 voici notre troisème visualisation: 
 
@@ -21,5 +21,4 @@ Et pour la troisième on pris le nombre de mortalité (de décès) dans certaine
 
 https://query.wikidata.org/embed.html#SELECT%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020Label%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fd%C3%A9sinformation_sur_la_pand%C3%A9mie_de_maladie_%C3%A0_coronavirus_de_2019_2020%20wdt%3AP921%20wd%3AQ85173778.%0A%7D%0ALIMIT%20100" 
 
-https://github.com/eclipse/rdf4j
 
