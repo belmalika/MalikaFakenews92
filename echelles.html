@@ -16,10 +16,10 @@
     import {posiColor} from './modules/posiColor.js';
 
     let data, 
-https://github.com/belmalika/echelles/blob/main/synthese-fra.csv?plain=1
-        urlData = "data/fr-en-evaluations_nationales_6eme_region.csv",
+        //urlData = "http://localhost/samszo/HDR/docs/assets/data/complexityFrequency.json",
+        urlData = "https://github.com/belmalika/echelles/blob/d17a1502a018b20b7b57c5fac2aff8de2e130f74/synthese-fra.csv",
         width = 600, height=600, widthLibTxt=120, svg,  
-        valX='Score moyen',valDim='Matière',valY='Ecart type',
+        valX='date',valGroupe='total_cas_confirmes	',valY='total_deces_hopital',
         bandY,
         interpolates = false;
         /*{
@@ -40,7 +40,7 @@ https://github.com/belmalika/echelles/blob/main/synthese-fra.csv?plain=1
     })
 
     function setData(rs){
-        data = Array.from(d3.group(rs, d => d[valDim]));
+        data = Array.from(d3.group(rs, d => d[valGroupe]));
         //création de l'échelle par bandes
         //cf. https://observablehq.com/@d3/d3-scaleband
         bandY = d3.scaleBand(data.map(d=>d[0]), [0, height]).paddingInner(0.2).paddingOuter(0.2);
@@ -56,7 +56,7 @@ https://github.com/belmalika/echelles/blob/main/synthese-fra.csv?plain=1
                         'scX':d3.scaleLinear().domain(extX).range([widthLibTxt, width-widthLibTxt]),
                         'scY':d3.scaleLinear().domain(extY).range([0, bandY.bandwidth()])
                         };
-                        o[valDim]=d[0];
+                        o[valGroupe]=d[0];
                     return o;
                 });
         return data;
@@ -81,9 +81,9 @@ https://github.com/belmalika/echelles/blob/main/synthese-fra.csv?plain=1
                 .attr("style", "max-width: 100%; height: auto;")
                 .style("font", "14px sans-serif"),
             dim = svg.selectAll('g').data(data).enter().append("g")
-                .attr("transform",(d,i)=>`translate(0,${bandY(d[valDim])})`);
+                .attr("transform",(d,i)=>`translate(0,${bandY(d[valGroupe])})`);
             dim.append("text").text(d=>{
-                return d[valDim]
+                return d[valGroupe]
             })
             dim.append("g").attr("transform", (d,i)=>`translate(widthLibTxt,0)`).attr('id',(d,i)=>'axisX'+i)
                 .each((d,i)=>{
